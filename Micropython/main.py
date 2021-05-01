@@ -50,9 +50,6 @@ def get_frame(pin):
     
 
 
-
-
-
 #the following functions are used with the control interface (CCI) (check_busy -> run_seq)
 def check_status_bit():
     #reads the status bit in the status register
@@ -64,10 +61,7 @@ def check_status_bit():
         i2c.writeto(LEPTON_ADDR,STATUS_REG,False)
         i2c.readfrom_into(LEPTON_ADDR,res)
 
-            
-
-
-
+  
 def check_busy():
     #reads the BUSY bit in the status register
     res=bytearray([0x0,0x1])
@@ -115,8 +109,7 @@ def read_data_reg(res):
     #reads the data in the data registers 
     i2c.writeto(LEPTON_ADDR,DATA_REG,False)
     i2c.readfrom_into(LEPTON_ADDR,res)
-    
-
+  
 
 def write_data_reg(buff):
     #writes the data in the data registers
@@ -125,8 +118,7 @@ def write_data_reg(buff):
     i2c.write(DATA_REG)
     i2c.write(buff)
     i2c.stop()
-    
-    
+      
 
 #main functions below : read, write and run . See Lepton SW IDD 
 def read_data(c,res):
@@ -139,8 +131,6 @@ def read_data(c,res):
         read_data_reg(res)
     return err
 
-
-
 def write_data(c,buff):
     check_busy()
     write_data_reg(buff) 
@@ -148,7 +138,6 @@ def write_data(c,buff):
     write_command(c,'SET')
     check_busy()
     return check_error_code()
-
 
 
 def run_seq(c):
@@ -203,6 +192,7 @@ buff_video=bytearray(PACKET_SIZE*60)
 #exception occurences
 nbre_ex=0
 #exception follow up to avoid ENOMEM bug 
+#https://github.com/espressif/esp-idf/issues/390
 flag_ex=False
 t1_ex=None
 
