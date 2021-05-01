@@ -6,11 +6,24 @@ images/video. The program enables the user to choose the mode : 1) AGC (8 bit gr
 the screen. CAUTION : the program does not involve any calibration of the Lepton. The user can zoom and takes some screenshots (two buttons at the bottom of the screen for 
 this purpose)
 
-Hardware
-Iphone (8)
-ESP32 Wroom (from uPesy)
-jumper cables + breadboard
-Lepton 3.5
-Breakout board V2.0
+## **Hardware**
+- Iphone (8)
+- ESP32 Wroom DevKit (from uPesy)
+- jumper cables + breadboard
+- Lepton 3.5
+- Breakout board V2.0
 
- 
+## ** Preparation**
+1) in boot.py set up the password and essid before uploading in the ESP32 boot.py & main.py
+2) cabling according to Lepton Breakout board V2.0 electrical scheme and https://lepton.flir.com/getting-started/raspberry-pi-lepton/ + MOSI grounded
+
+## **Usage**
+- power up the ESP32, after 5 s, the blue LED blinks at 1 Hz, it means that the ESP32 waits for the mode selection coming from the Pythonista programm
+- run the Pythonista program , select the mode, the blue LED of the ESP32 blinks then faster (10 Hz) until the intilisation is complete
+- when the initialisation is complete the LED remains fixed, the video appears on the Iphone two seconds after 
+- the user can zoom (1 , 1.5, 2, 2.5, 3, whole width), takes a screenshot (files are named screenshot0X.jpg, previous files are erased) 
+- in RAD mode (RGB), the user can get the temperature through touching the view 
+- Bad CRC : information about the communication quality, usually around 20-25%. qsize :queue shared between the thread that receipts the data and the one that processes the data, 
+if everything is fine, qsize should be not more than 2 (=processing faster than data receiption). fps : frame per second, should be 9 (at least outside US, perhaps in US can be 27?). T (only in RAD mode) : temperature got after having touched the view (a white dot appears when the screen is touched, see vide examples) 
+
+
