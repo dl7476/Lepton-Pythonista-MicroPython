@@ -6,7 +6,7 @@ import usocket as socket
 
 LEPTON_ADDR=0x2A
 
-#configuration =  VIDEO_FORMAT=RAW14 & AGC_EN = True.
+
 # SPI speed : 20 MHz -> 3.9 ms to retrieve one segment (164 x 60 x 8 = 78720 bits) in RAW14 format. Measurment in "loop": 4-5 ms (4300-4400 us)
 # SPI+UDP (sendto segment of 164x60 bytes): 7-8 ms . UDP speed : around 30 Mb/s (2600 us / segment), as indicated by Espressif
 # VSYNC  frequency : 27x4 Hz -> every 9.25 ms.  Note : RGB888 packet size : 244 ,cannot be sent on time through UDP sendto  
