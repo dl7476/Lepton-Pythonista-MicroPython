@@ -22,12 +22,12 @@ this purpose)
 - power up the ESP32, after 5 s, the blue LED blinks at 1 Hz, it means that the ESP32 waits for the mode selection coming from the Pythonista program
 - in the Iphone , go to the wifi configuration panel and choose the relevant Wifi access point (that you have specified at 1) in "preparation" above). Check that the Wifi logo 
   has appeared on the Iphone screen  
-- run the Pythonista program , select the mode, the blue LED of the ESP32 blinks then faster (10 Hz) until the intilisation is complete
+- run the Pythonista program , select the mode, the blue LED of the ESP32 blinks faster (10 Hz) until the intilisation is complete
 - when the initialisation is complete, the LED remains fixed, the video appears on the Iphone two seconds after 
 - the user can zoom (1 , 1.5, 2, 2.5, 3, whole width), takes a screenshot (files are named screenshot0X.jpg, the previous files are erased) 
 - in RAD mode (RGB), the user can get the temperature through touching the view 
-- Top screen : Bad CRC : information about the communication quality, usually around 20-25%. qsize :queue shared between the thread that receipts the data and the one that       processes the data, if everything is fine, qsize should be not more than 2 (=processing faster than data receiption). fps : frame per second, should be 9 (at least outside US, perhaps in US can be 27?). T (only in RAD mode) : temperature got after having touched the view (a white dot appears when the screen is touched, see video example) 
-- RGB : the palette used can be found in "Pythonista" folder, the program adapts the color to the the current scene temperature range 
+- Top screen : Bad CRC : information about the communication quality, usually around 20-25%. qsize :size of the queue shared between the thread that receipts the data and the one that       processes the data, if everything is fine, qsize should be not more than 2 (=processing faster than data receiption). fps : frame per second, should be 9 (at least outside US, perhaps in US can be 27?). T (only in RAD mode) : temperature got after having touched the view (a white dot appears when the screen is touched, see video example) 
+- RGB : the palette used can be found in "Pythonista" folder, the program adapts the color range to the the current scene temperature range 
 - Streaming duration : see remark at 2) above in "preparation"
 - during the video streaming, the user can stop the Pythonista program and run it again but the user has to choose the same mode as initially specified (it is not possible to change the mode during the streaming). If the user wants to switch to a different mode, the ESP32 must be reset (then the blue LED blinks at 1 Hz, etc...) 
 
