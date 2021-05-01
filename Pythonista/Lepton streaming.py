@@ -38,8 +38,6 @@ tab=[]
 
 
 
-
-
 class lepton_view(ui.View):
 	def __init__(self,scale,v_format):
 		
@@ -121,9 +119,6 @@ class lepton_view(ui.View):
 		self.seg_thread=threading.Thread(target=self.handle_queue)
 		self.seg_thread.start()
 	
-		
-	
-			
 			
 		
 	def set_mode(self):
@@ -160,10 +155,6 @@ class lepton_view(ui.View):
 			return True
 
 			
-			
-			
-				
-			
 	
 	def init_tlinear(self):
 		#temperature label , only in rad/tlinear
@@ -182,16 +173,17 @@ class lepton_view(ui.View):
 		#c_array_t : temperature buffer. array_t : temperature array once a frame is completed
 		self.c_array_t=np.zeros((L_W,L_H))
 		self.array_t=None
-		
-		
+		#touch location
+		self.t_t=ui.ImageView(frame=(0,0,10,10),image=ui.Image('emj:White_Circle'))
+
+			
 	def calculate_frame(self):
 		self.img_x=(self.w-L_H*self.scale)/2
 		self.img_y=(self.h-L_W*self.scale)/2
 		self.img_w=self.scale*L_H
 		self.img_h=self.scale*L_W
 		
-		
-		
+			
 	def set_button(self,x,y,name,img):
 		button = ui.Button(frame=(x,y,60,60),  name=name)
 		#button.background_color = (0, 0, 0, 0.5)
@@ -227,8 +219,7 @@ class lepton_view(ui.View):
 			self.calculate_frame()
 			self.img_view.frame=(self.img_x,self.img_y,self.img_w,self.img_h)
 			
-			
-			
+				
 	def draw_Label(self,text,x,y,color):
 		classTxt=ui.Label(frame=(x,y,70,20))
 		classTxt.text_color=color
@@ -253,9 +244,17 @@ class lepton_view(ui.View):
 				X=Yp
 				Y=L_H-Xp
 				self.t_label.text='T: '+str(int(self.array_t[X,Y]))+' C'
+				self.t_t.center=(x,y)
+				self.add_subview(self.t_t)
 
-		
-		
+	
+	
+	def touch_ended(self,touch):
+		if self.v_format=='RGB':
+			if self.t_t.superview!=None:
+				self.remove_subview(self.t_t)
+
+
 	
 	def listen_socket(self):
 		#segment receiption 
@@ -271,7 +270,6 @@ class lepton_view(ui.View):
 				print('exception',e)
 				self.is_listening=False
 		
-
 
 
 	def handle_queue(self):
@@ -399,8 +397,7 @@ class lepton_view(ui.View):
 			self.c_array_t[x,y]=t*TLINEAR_RES-273.15
 			return self.grey_to_RGB(t-self.tmin,self.t_range)
 		
-		
-		
+			
 	
 	def grey_to_RGB(self,v,N):
 		# grey to rgb conversion. v: between 0 and N. N : range/max. v=0 blue, v=N/4 cyan v=N/2 green v=3N/4 yellow v=N red
@@ -448,7 +445,6 @@ if c==1:
 	m='L'
 else:
 	m='RGB'
-	
 	
 
 
