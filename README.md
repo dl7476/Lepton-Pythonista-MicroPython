@@ -20,12 +20,14 @@ this purpose)
 
 ## **Usage**
 - power up the ESP32, after 5 s, the blue LED blinks at 1 Hz, it means that the ESP32 waits for the mode selection coming from the Pythonista program
+
 ![LED](https://user-images.githubusercontent.com/83216773/116789362-c4ef9880-aaae-11eb-8fb3-2407697196d4.jpg)
 
 
 - in the Iphone , go to the wifi configuration panel and choose the relevant Wifi access point (that you have specified at 1) in "preparation" above). Check that the Wifi logo 
   has appeared on the Iphone screen  
 - run the Pythonista program , select the mode, the blue LED of the ESP32 blinks faster (10 Hz) until the intilisation is complete
+
 ![mode-sel](https://user-images.githubusercontent.com/83216773/116789294-780bc200-aaae-11eb-853d-eed033373a6d.jpg)
 
 
