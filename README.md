@@ -13,17 +13,21 @@ this purpose)
 - Lepton 3.5
 - Breakout board V2.0
 
-## ** Preparation**
+## **Preparation**
 1) in boot.py set up the password and essid before uploading in the ESP32 boot.py & main.py
-2) cabling according to Lepton Breakout board V2.0 electrical scheme and https://lepton.flir.com/getting-started/raspberry-pi-lepton/ + MOSI grounded
+2) in main.py : set up the TIMEOUT, the streaming lasts the duration specified by TIMEOUT. If you want that the loop runs forever, replace the duration in the "while loop" by "true" 
+3) cabling according to Lepton Breakout board V2.0 electrical scheme and https://lepton.flir.com/getting-started/raspberry-pi-lepton/ + MOSI grounded
 
 ## **Usage**
 - power up the ESP32, after 5 s, the blue LED blinks at 1 Hz, it means that the ESP32 waits for the mode selection coming from the Pythonista programm
+- in the Iphone , go to the wifi configuration panel and choose the relevant Wifi access point (that you have specified at 1) in preparation above). Check that the Wifi logo 
+  has appeared on the Iphone screen  
 - run the Pythonista program , select the mode, the blue LED of the ESP32 blinks then faster (10 Hz) until the intilisation is complete
 - when the initialisation is complete the LED remains fixed, the video appears on the Iphone two seconds after 
 - the user can zoom (1 , 1.5, 2, 2.5, 3, whole width), takes a screenshot (files are named screenshot0X.jpg, previous files are erased) 
 - in RAD mode (RGB), the user can get the temperature through touching the view 
-- Bad CRC : information about the communication quality, usually around 20-25%. qsize :queue shared between the thread that receipts the data and the one that processes the data, 
-if everything is fine, qsize should be not more than 2 (=processing faster than data receiption). fps : frame per second, should be 9 (at least outside US, perhaps in US can be 27?). T (only in RAD mode) : temperature got after having touched the view (a white dot appears when the screen is touched, see vide examples) 
+- Top screen : Bad CRC : information about the communication quality, usually around 20-25%. qsize :queue shared between the thread that receipts the data and the one that       processes the data, if everything is fine, qsize should be not more than 2 (=processing faster than data receiption). fps : frame per second, should be 9 (at least outside US, perhaps in US can be 27?). T (only in RAD mode) : temperature got after having touched the view (a white dot appears when the screen is touched, see video examples) 
+- RGB : the palette used can be found in "Pythonista" folder, the programm adapts the color to the the current scene temperature range 
+- 
 
 
