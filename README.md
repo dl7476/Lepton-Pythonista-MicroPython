@@ -28,6 +28,7 @@ this purpose)
 - in RAD mode (RGB), the user can get the temperature through touching the view 
 - Top screen : Bad CRC : information about the communication quality, usually around 20-25%. qsize :queue shared between the thread that receipts the data and the one that       processes the data, if everything is fine, qsize should be not more than 2 (=processing faster than data receiption). fps : frame per second, should be 9 (at least outside US, perhaps in US can be 27?). T (only in RAD mode) : temperature got after having touched the view (a white dot appears when the screen is touched, see video examples) 
 - RGB : the palette used can be found in "Pythonista" folder, the programm adapts the color to the the current scene temperature range 
-- 
+- Streaming duration : see remark at 2) above in "preparation"
+- during the video streaming, the user can stop the Pythonista program and run it again but the user has to choose the mode initially speciifed. (not possible to change the mode during the streaming). If the user wants to switch to another mode, the ESP32 must be reset (then the blue LED blinks at 1 Hz, etc...) 
 
 
