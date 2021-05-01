@@ -13,9 +13,9 @@ import gc
 gc.collect()
 
 
-#access point
-ssid = 'ESP'
-password = '4037'
+#access point, ssid & password to be defined by the user
+ssid = 'XXXX'
+password = 'XXXX'
 
 
 
