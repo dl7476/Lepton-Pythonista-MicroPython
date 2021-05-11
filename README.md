@@ -40,7 +40,8 @@ this purpose)
 - Streaming duration : see remark at 2) above in "preparation"
 - during the video streaming, the user can stop the Pythonista program and run it again but the user has to choose the same mode as initially specified (it is not possible to change the mode during the streaming). Note: in this context, the view appears after 4/5 s once the mode is selected. If the user wants to switch to a different mode, the ESP32 must be reset (then the blue LED blinks at 1 Hz, etc...) 
 
-![View example](https://user-images.githubusercontent.com/83216773/117801915-1e955700-b255-11eb-8e98-e23eae5027ae.PNG)
+![View example2](https://user-images.githubusercontent.com/83216773/117802237-877ccf00-b255-11eb-97da-072771cb351c.jpg)
+
 
 
 
